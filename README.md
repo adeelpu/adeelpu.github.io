@@ -1,0 +1,1 @@
+This is the source code Subash Khanal's public academic website. Feel free to clone this code for your own personal use. This is modified from source code of <a href="https://github.com/jonbarron/jonbarron_website">John Barron's website.
