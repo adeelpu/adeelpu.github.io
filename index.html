@@ -2,15 +2,33 @@
 <html lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-
+  
     <title>Adeel Ahmad, Ph.D.</title>
-
+  
     <meta name="author" content="Adeel Ahmad">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="stylesheet.css">
-    
+  
+    <style>
+      #pagination button {
+        background: none;       /* remove background */
+        border: none;           /* remove border */
+        color: blue;            /* text color */
+        text-decoration: underline;
+        cursor: pointer;
+        font-size: 14px;
+        margin: 0 5px;
+      }
+  
+      #pagination button[style*="font-weight: bold"] {
+        color: red;             /* highlight current page */
+        text-decoration: none;  /* no underline for active */
+        font-weight: bold;
+      }
+    </style>
   </head>
+
 
   <body>
     <table style="width:100%;max-width:800px;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
