@@ -55,11 +55,11 @@
         z-index: 9999;
       }
       .lightbox img {
-        max-width: 100%;
-        max-height: 90%;
+        width: 800px;        /* 👈 set any width you want */
+        height: auto;        /* keeps aspect ratio */
+        max-width: 100%;     /* prevents overflow if screen is smaller */
         border-radius: 10px;
         box-shadow: 0 0 25px rgba(0,0,0,0.4);
-        cursor: zoom-out;
       }
 
     </style>
