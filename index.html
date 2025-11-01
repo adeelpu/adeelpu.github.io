@@ -44,6 +44,24 @@
         text-decoration: none;  /* no underline for active */
         font-weight: bold;
       }
+
+            .lightbox {
+        position: fixed;
+        inset: 0;
+        background: rgba(0,0,0,0.85);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 9999;
+      }
+      .lightbox img {
+        max-width: 90%;
+        max-height: 90%;
+        border-radius: 10px;
+        box-shadow: 0 0 25px rgba(0,0,0,0.4);
+        cursor: zoom-out;
+      }
+
     </style>
 
     <!-- Open Graph Meta Tags -->
@@ -993,5 +1011,24 @@
       showPage(1);
     </script>
 
+    <!-- 🔍 Lightbox overlay for thumbnails -->
+    <script>
+    document.addEventListener('click', e => {
+      const img = e.target.closest('img.thumb');
+      if (!img) return;  // ignore clicks elsewhere
+    
+      const src = img.src;
+      const overlay = document.createElement('div');
+      overlay.className = 'lightbox';
+      overlay.innerHTML = `<img src="${src}" alt="Full image">`;
+    
+      // remove overlay when clicked
+      overlay.addEventListener('click', () => overlay.remove());
+    
+      document.body.appendChild(overlay);
+    });
+    </script>
+
+    
   </body>
 </html>
