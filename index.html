@@ -11,6 +11,24 @@
     <link rel="stylesheet" type="text/css" href="stylesheet.css">
   
     <style>
+      /* Publication thumbnails: two-column layout [image | details] */
+        #pub-list .pub td{
+          display:grid;
+          grid-template-columns:120px 1fr;
+          gap:12px;
+          align-items:start;
+        }
+        #pub-list .pub td .thumb{
+          width:100%;
+          aspect-ratio:1/1;
+          object-fit:cover;
+          border-radius:8px;
+          border:1px solid #e5e7eb; /* light border like your screenshot */
+        }
+        @media (max-width:700px){
+          #pub-list .pub td{ grid-template-columns:90px 1fr; }
+        }
+
       #pagination button {
         background: none;       /* remove background */
         border: none;           /* remove border */
@@ -103,7 +121,7 @@
         <table style="width:98%;border:10px;border-spacing:10px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody id="pub-list">
           
           <tr class="pub">
-            <td width="100%" valign="middle">
+            <td width="100%" valign="middle" data-thumb="images/Range_2025.jpg">
               <a href="https://arxiv.org/pdf/2502.19781">
                 <span class="papertitle">RANGE: Retrieval Augmented Neural Fields for Multi-Resolution Geo-Embeddings</span>
               </a>
@@ -927,6 +945,28 @@
         </td>
       </tr>
     </table>
+
+    <script>
+      (function () {
+        const fallback = 'images/paper-thumb.jpg'; // add a default image here (optional)
+        document.querySelectorAll('#pub-list tr.pub > td').forEach(td => {
+          if (td.querySelector('img.thumb')) return; // idempotent
+          const src = td.dataset.thumb || fallback;
+          const alt = td.dataset.alt || 'Publication thumbnail';
+          const img = document.createElement('img');
+          img.className = 'thumb';
+          img.loading = 'lazy';
+          img.decoding = 'async';
+          img.alt = alt;
+          img.src = src;
+    
+          const details = document.createElement('div');
+          while (td.firstChild) details.appendChild(td.firstChild); // move your current content
+          td.appendChild(img);
+          td.appendChild(details);
+        });
+      })();
+    </script>
 
     <script>
       const pubsPerPage = 10;
