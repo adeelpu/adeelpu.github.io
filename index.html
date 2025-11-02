@@ -29,21 +29,17 @@
           #pub-list .pub td{ grid-template-columns:90px 1fr; }
         }
 
-      #pagination button {
-        background: none;       /* remove background */
-        border: none;           /* remove border */
-        color: blue;            /* text color */
-        text-decoration: underline;
-        cursor: pointer;
-        font-size: 14px;
-        margin: 0 5px;
-      }
-  
-      #pagination button[style*="font-weight: bold"] {
-        color: red;             /* highlight current page */
-        text-decoration: none;  /* no underline for active */
-        font-weight: bold;
-      }
+        .tab-panel .pagination { text-align:center; margin:14px 0; }
+        .tab-panel .pagination button{
+          display:inline-block;
+          background:none; border:none;
+          color:blue; text-decoration:underline;
+          cursor:pointer; font-size:14px; margin:0 5px;
+        }
+        .tab-panel .pagination button.active{
+          color:red; text-decoration:none; font-weight:bold;
+        }
+
 
             .lightbox {
         position: fixed;
@@ -1029,7 +1025,7 @@
           </section>
 
           <!-- ===== TAB: Training Workshops ===== -->
-          <section id="tab-tworkshops" class="tab-tworkshops">
+          <section id="tab-tworkshops" class="tab-panel">
 
             <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
               <tbody>
@@ -1093,20 +1089,26 @@
               const list = document.getElementById(listId);
               if (!list) return;
               const items = [...list.querySelectorAll('.pub')];
-              const pageSize = perPage[listId] || 10;
-              const totalPages = Math.max(1, Math.ceil(items.length / pageSize));
-          
-              items.forEach((tr, i) => {
-                tr.style.display = (i >= (page-1)*pageSize && i < page*pageSize) ? '' : 'none';
-              });
-          
+            
+              // If empty, clear pagination and bail.
               const pagEl = document.querySelector(`.pagination[data-for="${listId}"]`);
+              if (items.length === 0) {
+                if (pagEl) pagEl.innerHTML = '';
+                return;
+              }
+            
+              const pageSize = perPage[listId] || 10;
+              const totalPages = Math.ceil(items.length / pageSize);
+              items.forEach((tr, i) => {
+                tr.style.display = (i >= (page-1)*pageSize && i < page*pageSize) ? 'table-row' : 'none';
+              });
+            
               if (!pagEl) return;
               pagEl.innerHTML = '';
-              for(let i=1;i<=totalPages;i++){
+              for (let i = 1; i <= totalPages; i++) {
                 const b = document.createElement('button');
                 b.textContent = i;
-                b.className = i===page ? 'active' : '';
+                if (i === page) b.classList.add('active');
                 b.addEventListener('click', () => showPage(listId, i));
                 pagEl.appendChild(b);
               }
