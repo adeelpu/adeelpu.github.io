@@ -58,6 +58,42 @@
         box-shadow: 0 0 25px rgba(0,0,0,0.4);
       }
 
+      /* ----- Invited Talks card ----- */
+      #talks-list .pub td{
+        display:block;               /* one-column card */
+        padding:0;                   /* remove table padding */
+      }
+      .talk-card{
+        width:100%;
+        border:1px solid #e5e7eb;
+        border-radius:10px;
+        overflow:hidden;
+        margin:16px 0;
+        background:#fff;
+      }
+      .talk-card img{
+        display:block;
+        width:100%;                  /* full width of your page container (max 800px) */
+        height:auto;
+      }
+      .talk-body{
+        padding:12px 14px;
+      }
+      .talk-title{
+        font-size:1.25rem;
+        font-weight:700;
+        margin:0 0 6px 0;
+      }
+      .talk-meta{
+        margin:0 0 10px 0;
+        color:#555;
+        font-size:0.95rem;
+      }
+      .talk-links a{
+        margin-right:12px;
+        text-decoration:underline;
+      }
+
     </style>
 
     <!-- Open Graph Meta Tags -->
@@ -1007,40 +1043,42 @@
           </section>
           
           <!-- ===== TAB: Talks ===== -->
-          <section id="tab-talks" class="tab-panel">
-
-            <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-              <tbody>
-                <tr><td style="padding:20px;width:100%;vertical-align:middle"><h2>In-progress</h2></td></tr>
-              </tbody>
-            </table>
+          <table style="width:100%;border:0;border-spacing:0;border-collapse:separate;margin:0 auto;">
+            <tbody>
+              <tr><td style="padding:20px;width:100%;vertical-align:middle"><h2>Invited Talks</h2></td></tr>
+            </tbody>
+          </table>
           
-            <table style="width:98%;border:10px;border-spacing:10px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-              <tbody id="talks-list">
-                <!-- Put your talks here (same <tr class="pub"> structure) -->
-              </tbody>
-            </table>
+          <table style="width:98%;border:0;border-spacing:10px;border-collapse:separate;margin:0 auto;">
+            <tbody id="talks-list">
           
-            <div class="pagination" data-for="talks-list"></div>
-          </section>
-
-          <!-- ===== TAB: Training Workshops ===== -->
-          <section id="tab-tworkshops" class="tab-panel">
-
-            <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-              <tbody>
-                <tr><td style="padding:20px;width:100%;vertical-align:middle"><h2>In-progress</h2></td></tr>
-              </tbody>
-            </table>
-            
-            <table style="width:98%;border:10px;border-spacing:10px;border-collapse:separate;margin-right:auto;margin-left:auto;">
-              <tbody id="tworkshops-list">
-                <!-- Put your Training Workshops here (same <tr class="pub"> structure) -->
-              </tbody>
-            </table>
+              <!-- ==== One Talk Card ==== -->
+              <tr class="pub">
+                <td>
+                  <article class="talk-card">
+                    <img src="images/IT_kinnaird_2025.jpg" alt="Adeel Ahmad delivering a talk">
           
-            <div class="pagination" data-for="tworkshops-list"></div>
-          </section>
+                    <div class="talk-body">
+                      <div class="talk-title">GeoAI for Sustainable Futures</div>
+                      <p class="talk-meta">
+                        <strong>12 Oct 2025</strong> — Kinnaird College for Women, Lahore
+                      </p>
+                      <p class="talk-links">
+                        <a href="https://www.linkedin.com/..." target="_blank" rel="noopener">LinkedIn post</a>
+                        <a href="https://www.instagram.com/..." target="_blank" rel="noopener">Instagram</a>
+                        <a href="https://x.com/..." target="_blank" rel="noopener">X (Twitter)</a>
+                        <a href="https://facebook.com/..." target="_blank" rel="noopener">Facebook</a>
+                      </p>
+                    </div>
+                  </article>
+                </td>
+              </tr>
+              <!-- Duplicate the block above for more talks -->
+          
+            </tbody>
+          </table>
+          
+          <div class="pagination" data-for="talks-list"></div>
           
           <!-- ========= Thumbnails (works for all lists) ========= -->
           <script>
