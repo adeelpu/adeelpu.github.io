@@ -7,10 +7,28 @@
   
     <meta name="author" content="Adeel Ahmad">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+    <link rel="icon" type="image/jpeg" sizes="16x16" href="images/adeel-header.png?v=1">
     <link rel="stylesheet" type="text/css" href="stylesheet.css">
   
     <style>
+      /* Publication thumbnails: two-column layout [image | details] */
+        #pub-list .pub td{
+          display:grid;
+          grid-template-columns:200px 1fr;
+          gap:12px;
+          align-items:start;
+        }
+        #pub-list .pub td .thumb{
+          width:100%;
+          aspect-ratio:4/3;
+          object-fit:cover;
+          border-radius:8px;
+          border:1px solid #e5e7eb; /* light border like your screenshot */
+        }
+        @media (max-width:700px){
+          #pub-list .pub td{ grid-template-columns:90px 1fr; }
+        }
+
       #pagination button {
         background: none;       /* remove background */
         border: none;           /* remove border */
@@ -26,6 +44,24 @@
         text-decoration: none;  /* no underline for active */
         font-weight: bold;
       }
+
+            .lightbox {
+        position: fixed;
+        inset: 0;
+        background: rgba(0,0,0,0.85);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 9999;
+      }
+      .lightbox img {
+        width: 600px;        /* 👈 set any width you want */
+        height: auto;        /* keeps aspect ratio */
+        max-width: 100%;     /* prevents overflow if screen is smaller */
+        border-radius: 10px;
+        box-shadow: 0 0 25px rgba(0,0,0,0.4);
+      }
+
     </style>
 
     <!-- Open Graph Meta Tags -->
@@ -71,12 +107,13 @@
                   <a href="mailto:adeal.gis@gmail.com">Email</a> &nbsp;/&nbsp;
                   <a href="data/Adeel-Ahmad-CV-2025.pdf">CV</a> &nbsp;/&nbsp;
                   <a href="https://scholar.google.com.pk/citations?user=_Ryh8ywAAAAJ&hl=en">Google Scholar</a> &nbsp;/&nbsp;
+                  <a href="https://www.researchgate.net/profile/Adeel-Ahmad-4?ev=hdr_xprf">ResearchGate</a> &nbsp;/&nbsp;
                   <a href="https://www.linkedin.com/in/adeel-ahmad-gis/">LinkedIn</a> &nbsp;/&nbsp;
                   <a href="https://github.com/adeelpu/">Github</a> &nbsp;/&nbsp;
                   <a href="https://www.youtube.com/@AdeelAhmad/">YouTube Channel</a>
                 </p>
               </td>
-              <td style="padding:2.5%;width:40%;max-width:40%">
+              <td style="padding:2.5%;width:50%;max-width:50%">
                 <a href="images/adeel-bio-2.jpg"><img style="width:100%;max-width:100%" alt="profile photo" src="images/adeel-bio-2.jpg" class="hoverZoomLink"></a>
               </td>
             </tr>
@@ -103,7 +140,7 @@
         <table style="width:98%;border:10px;border-spacing:10px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody id="pub-list">
           
           <tr class="pub">
-            <td width="100%" valign="middle">
+            <td width="100%" valign="middle" data-thumb="images/Range_2025.jpg">
               <a href="https://arxiv.org/pdf/2502.19781">
                 <span class="papertitle">RANGE: Retrieval Augmented Neural Fields for Multi-Resolution Geo-Embeddings</span>
               </a>
@@ -122,7 +159,7 @@
           </tr>
 
           <tr class="pub">
-            <td width="100%" valign="middle">
+            <td width="100%" valign="middle" data-thumb="images/FTW_2025.jpg">
               <a href="https://arxiv.org/abs/2409.16252">
                 <span class="papertitle">Fields of The World: A Machine Learning Benchmark Dataset for Global Agricultural Field Boundary Segmentation</span>
               </a>
@@ -142,7 +179,7 @@
           </tr>
           
           <tr class="pub">
-            <td width="100%" valign="middle">
+            <td width="100%" valign="middle" data-thumb="images/Applications_Health_2025.jpg">
               <a href="https://link.springer.com/article/10.1007/s10389-025-02444-x">
                 <span class="papertitle">Applications of Artificial Intelligence in Public Health: Analyzing the Built Environment and Addressing Spatial Inequities</span>
               </a>
@@ -159,7 +196,7 @@
           </tr>
           
           <tr class="pub">
-            <td width="100%" valign="middle">
+            <td width="100%" valign="middle" data-thumb="images/Taxabind_2025.jpg">
               <a href="https://arxiv.org/pdf/2408.07050">
                 <span class="papertitle">TaxaBind: A Unified Embedding Space for Ecological Applications</span>
               </a>
@@ -179,7 +216,7 @@
           </tr>
 
           <tr class="pub">
-            <td width="100%" valign="middle">
+            <td width="100%" valign="middle" data-thumb="images/forest_frag_ajk_2025.jpg">
               <a href="https://link.springer.com/article/10.1007/s10661-025-13639-w">
                 <span class="papertitle">Assessment of Forest Fragmentation and Ecological Dynamics in Western Himalayan Region Over Three Decades (1990–2020)</span>
               </a>
@@ -196,7 +233,7 @@
           </tr>
 
           <tr class="pub">
-            <td width="100%" valign="middle">
+            <td width="100%" valign="middle" data-thumb="images/mount_review_2025.jpg">
               <a href="https://www.sciencedirect.com/science/article/pii/S2307410824001627">
                 <span class="papertitle">A Comprehensive Review of Spatial Distribution Modeling of Plant Species in Mountainous Environments: Implications for Biodiversity Conservation and Climate Change Assessment</span>
               </a>
@@ -213,7 +250,7 @@
           </tr>
 
           <tr class="pub">
-            <td width="100%" valign="middle">
+            <td width="100%" valign="middle" data-thumb="images/PSM_2024.jpg">
               <a href="https://arxiv.org/pdf/2408.07050">
                 <span class="papertitle">PSM: Learning Probabilistic Embeddings for Multi-scale Zero-Shot Soundscape Mapping</span>
               </a>
@@ -233,7 +270,7 @@
           </tr>
 
           <tr class="pub">
-            <td width="100%" valign="middle">
+            <td width="100%" valign="middle" data-thumb="images/agu_2024.jpg">
               <a href="https://ui.adsabs.harvard.edu/abs/2024AGUFMB52B...07A/abstract">
                 <span class="papertitle">Improved Canopy Vertical Structural Diversity Mapping Across Varied Topographies Using Deep Learning Techniques</span>
               </a>
@@ -250,7 +287,7 @@
           </tr>
 
           <tr class="pub">
-            <td width="100%" valign="middle">
+            <td width="100%" valign="middle" data-thumb="images/agu_2024.jpg">
               <a href="https://ui.adsabs.harvard.edu/abs/2024AGUFMGC01...61S/abstract">
                 <span class="papertitle">ClimSatDiff: Synthesizing the Earth's Surface Conditioned on Climatic Variables using Diffusion Models</span>
               </a>
@@ -266,7 +303,7 @@
           </tr>
 
           <tr class="pub">
-            <td width="100%" valign="middle">
+            <td width="100%" valign="middle" data-thumb="images/agu_2024.jpg">
               <a href="https://ui.adsabs.harvard.edu/abs/2024AGUFMB52C...03K/abstract">
                 <span class="papertitle">Fields of The World (FTW!): A New Machine Learning Dataset for Agricultural Field Boundary Segmentation on Four Continents</span>
               </a>
@@ -282,7 +319,7 @@
           </tr>
 
           <tr class="pub">
-            <td width="100%" valign="middle">
+            <td width="100%" valign="middle" data-thumb="images/COPD_2024.jpg">
               <a href="https://link.springer.com/article/10.1007/s10661-024-13105-z">
                 <span class="papertitle">Geospatial Modelling of Ambient Air Pollutants and Chronic Obstructive Pulmonary Diseases at Regional Scale in Pakistan</span>
               </a>
@@ -299,7 +336,7 @@
           </tr>
 
           <tr class="pub">
-            <td width="100%" valign="middle">
+            <td width="100%" valign="middle" data-thumb="images/waste_disposal_sites_2024.jpg">
               <a href="https://pdfs.semanticscholar.org/4277/075433d76d0f954b97fdc53f9b9aa675aecf.pdf">
                 <span class="papertitle">Spatial Evaluation of Waste Disposal Site Selection using GIS-Based MultiCriteria Analysis: A Case Study of Dera Ghazi Khan District, Pakistan</span>
               </a>
@@ -315,7 +352,7 @@
           </tr>
 
           <tr class="pub">
-            <td width="100%" valign="middle">
+            <td width="100%" valign="middle" data-thumb="images/geobind_2024.jpg">
               <a href="https://arxiv.org/abs/2404.11720">
                 <span class="papertitle">GEOBIND: Binding Text, Image, and Audio through Satellite Images</span>
               </a>
@@ -332,7 +369,7 @@
           </tr>
 
           <tr class="pub">
-            <td width="100%" valign="middle">
+            <td width="100%" valign="middle" data-thumb="images/ca-ann_2024.jpg">
               <a href="https://link.springer.com/article/10.1007/s12665-024-11467-8">
                 <span class="papertitle">CA-ANN Based LULC Prediction and Influence Assessment on LST-NDVI using Multi-Temporal Satellite Images</span>
               </a>
@@ -348,7 +385,7 @@
           </tr>
 
           <tr class="pub">
-            <td width="100%" valign="middle">
+            <td width="100%" valign="middle" data-thumb="images/sat2cap_2024.jpg">
               <a href="https://openaccess.thecvf.com/content/CVPR2024W/EarthVision/papers/Dhakal_Sat2Cap_Mapping_Fine-Grained_Textual_Descriptions_from_Satellite_Images_CVPRW_2024_paper.pdf">
                 <span class="papertitle">Sat2Cap: Mapping Fine-Grained Textual Descriptions from Satellite Images</span>
               </a>
@@ -367,7 +404,7 @@
           </tr>
 
           <tr class="pub">
-            <td width="100%" valign="middle">
+            <td width="100%" valign="middle" data-thumb="images/water_level_lhr_2023.jpg">
               <a href="https://www.sciencedirect.com/science/article/pii/S1944398624107369">
                 <span class="papertitle">Delineation of Groundwater Potential Zones with Analytic Hierarchy Process based Geospatial Modelling Approach in Metropolitan Expanse</span>
               </a>
@@ -383,7 +420,7 @@
           </tr>
 
           <tr class="pub">
-            <td width="100%" valign="middle">
+            <td width="100%" valign="middle" data-thumb="images/LDSDM_2023.jpg">
               <a href="https://arxiv.org/pdf/2312.08334">
                 <span class="papertitle">LD-SDM: Language-Driven Hierarchical Species Distribution Modeling</span>
               </a>
@@ -400,7 +437,7 @@
           </tr>
           
           <tr class="pub">
-            <td width="100%" valign="middle">
+            <td width="100%" valign="middle" data-thumb="images/index_based_2022.jpg">
               <a href="https://ges.rgo.ru/jour/article/view/2739">
                 <span class="papertitle">Index-Based Spatiotemporal Assesment of Water Quality in Tarbela Reservoir, Pakistan (1990− 2020)</span>
               </a>
@@ -416,7 +453,7 @@
           </tr>
 
           <tr class="pub">
-            <td width="100%" valign="middle">
+            <td width="100%" valign="middle" data-thumb="images/tree_ajk_2023.jpg">
               <a href="https://link.springer.com/chapter/10.1007/978-981-19-4200-6_7">
                 <span class="papertitle">Potential Tree Species Distribution Modelling using MaxEnt Model for Resource Partitioning in Azad Jammu and Kashmir (AJK), Pakistan</span>
               </a>
@@ -433,7 +470,7 @@
           </tr>
 
           <tr class="pub">
-            <td width="100%" valign="middle">
+            <td width="100%" valign="middle" data-thumb="images/landslide_2022.jpg">
               <a href="https://eqa.unibo.it/article/view/12600">
                 <span class="papertitle">GIS-based Landslide Susceptibility Mapping using Analytical Hierarchy Process: A Case Study of Astore Region, Pakistan</span>
               </a>
@@ -451,7 +488,7 @@
           </tr>
 
           <tr class="pub">
-            <td width="100%" valign="middle">
+            <td width="100%" valign="middle" data-thumb="images/crim_2022.jpg">
               <a href="https://www.researchgate.net/profile/Adeel-Ahmad-4/publication/362569531_Role_of_Geospatial_Technology_in_Crime_Mapping_Analysis_A_Case_Study_of_District_Kasur/links/62f21c1c0b37cc344780c0cd/Role-of-Geospatial-Technology-in-Crime-Mapping-Analysis-A-Case-Study-of-District-Kasur.pdf">
                 <span class="papertitle">Role of Geospatial Technology in Crime Mapping & Analysis: A Case Study of District Kasur, Punjab, Pakistan</span>
               </a>
@@ -468,7 +505,7 @@
           </tr>
 
           <tr class="pub">
-            <td width="100%" valign="middle">
+            <td width="100%" valign="middle" data-thumb="images/changes_monthly_2021.jpg">
               <a href="https://link.springer.com/article/10.1007/s00477-021-02067-0">
                 <span class="papertitle">Changes in Monthly Streamflow in the Hindukush–Karakoram–Himalaya Region of Pakistan using Innovative Polygon Trend Analysis</span>
               </a>
@@ -486,7 +523,7 @@
           </tr>
 
           <tr class="pub">
-            <td width="100%" valign="middle">
+            <td width="100%" valign="middle" data-thumb="images/lahore_lost_cover_2022.jpg">
               <a href="https://www.express.pk/story/2314134/1">
                 <span class="papertitle">Lahore, the city of gardens, has lost 70% of its tree cover (باغوں کا شہر لاہور اپنے 70 فیصد درختوں سے محروم ہو چکا ہے)</span>
               </a>
@@ -503,7 +540,7 @@
           </tr>
 
           <tr class="pub">
-            <td width="100%" valign="middle">
+            <td width="100%" valign="middle" data-thumb="images/spatiotemporal_2022.jpg">
               <a href="https://www.sciencedirect.com/science/article/abs/pii/B9780323898614000233">
                 <span class="papertitle">Spatiotemporal Urban Sprawl and Land Resource Assessment using Google Earth Engine Platform in Lahore District, Pakistan</span>
               </a>
@@ -521,7 +558,7 @@
           </tr>
 
           <tr class="pub">
-            <td width="100%" valign="middle">
+            <td width="100%" valign="middle" data-thumb="images/soil_erosion_2021.jpg">
               <a href="https://onlinelibrary.wiley.com/doi/abs/10.1002/ldr.4138">
                 <span class="papertitle">Impact Assessment of Land Cover and Land Use Changes on Soil Erosion Changes (2005–2015) in Pakistan</span>
               </a>
@@ -541,7 +578,7 @@
           </tr>
           
           <tr class="pub">
-            <td width="100%" valign="middle">
+            <td width="100%" valign="middle" data-thumb="images/crop_type_2021.jpg">
               <a href="https://www.sciencedirect.com/science/article/abs/pii/S0273117721007262">
                 <span class="papertitle">A Machine Learning Approach for Accurate Crop Type Mapping using Combined SAR and Optical Time Series Data</span>
               </a>
@@ -559,7 +596,7 @@
           </tr>
 
           <tr class="pub">
-            <td width="100%" valign="middle">
+            <td width="100%" valign="middle" data-thumb="images/forest_review_pk_2021.png">
               <a href="https://doi.org/10.3390/f12091211">
                 <span class="papertitle">A Synthesis of Spatial Forest Assessment Studies Using Remote Sensing Data and Techniques in Pakistan</span>
               </a>
@@ -577,7 +614,7 @@
           </tr>
 
           <tr class="pub">
-            <td width="100%" valign="middle">
+            <td width="100%" valign="middle" data-thumb="images/agb_review_2021.jpg">
               <a href="https://doi.org/10.3390/f12070914">
                 <span class="papertitle">Forest Aboveground Biomass Estimation and Mapping through High-Resolution Optical Satellite Imagery—A Literature Review</span>
               </a>
@@ -595,7 +632,7 @@
           </tr>
           
           <tr class="pub">
-            <td width="100%" valign="middle">
+            <td width="100%" valign="middle" data-thumb="images/ajk_agri_ahp_2020.jpg">
               <a href="https://api.pakjas.com.pk/downloadPaper/3277.pdf">
                 <span class="papertitle">Weighted Overlay Based Land Suitability Analysis of Agriculture Land in Azad Jammu and Kashmir Using GIS and AHP</span>
               </a>
@@ -613,7 +650,7 @@
           </tr>
 
           <tr class="pub">
-            <td width="100%" valign="middle">
+            <td width="100%" valign="middle" data-thumb="images/vector_lulc_2020.jpg">
               <a href="https://ges.rgo.ru/jour/article/view/1165">
                 <span class="papertitle">The Study Of Land Cover Change Using Change Vector Approach Integrated With Unsupervised Classification Method: A Case In Duy Tien (Vietnam)</span>
               </a>
@@ -631,7 +668,7 @@
           </tr>
 
           <tr class="pub">
-            <td width="100%" valign="middle">
+            <td width="100%" valign="middle" data-thumb="images/relative_slope_2020.jpg">
               <a href="https://ges.rgo.ru/jour/article/view/1164">
                 <span class="papertitle">The Role Of Relative Slope Length In Flood Hazard Mapping Using Ahp And Gis (Case Study: Lam River Basin, Vietnam)</span>
               </a>
@@ -649,7 +686,7 @@
           </tr>
 
           <tr class="pub">
-            <td width="100%" valign="middle">
+            <td width="100%" valign="middle" data-thumb="images/tea_2020.jpg">
               <a href="https://d1wqtxts1xzle7.cloudfront.net/62869766/2020_-_Assessment_of_Land_Suitability_for_Tea_Cultivation20200408-29526-1e9be3k-libre.pdf?1586337256=&response-content-disposition=inline%3B+filename%3DAssessment_of_Land_Suitability_for_Tea_C.pdf&Expires=1758833883&Signature=ErOfIEEIJxlI8A9sy-3-KFLF9SpiWmpIPhBq273Q7K6kcVwlPOs8pLI4eOoM~P45LKMIb4GZqczFzdIsnHrONCeLbsQ-6I7RFUf3YCnA3W2r4xxqILxG-asTeI3f3fJkk4QnyvUxKB-x5O1S-6oQjYCMZONZu8mxUHzLjCHPmIsdCwv3pcVyTs0pytphVQ-fYNd76CfxzVjAFm5TkX2znbT1HV~i6sG54oKy9skZxxnNcFp7WR31IQ03hRD46j~OjjFasm7jgW4cOFZBVestqjDcN1J7k1Jh77dLvc1fzp3TnjNLmu-E37zl~lnuqYzMgLEL6P~nPiFGpnXFfC4EEg__&Key-Pair-Id=APKAJLOHF5GGSLRBV4ZA">
                 <span class="papertitle">Assessment of Land Suitability for Tea Cultivation Using Geo-Informatics in the Mansehra and Abbottabad District</span>
               </a>
@@ -667,7 +704,7 @@
           </tr>
 
           <tr class="pub">
-            <td width="100%" valign="middle">
+            <td width="100%" valign="middle" data-thumb="images/ravi_lulc_2020.jpg">
               <a href="https://link.springer.com/chapter/10.1007/978-3-030-73089-5_16">
                 <span class="papertitle">Assessing the Impact of Land Use and Land Cover (LULC) Changes on the Biodiversity of River Ravi, Lahore—Pakistan</span>
               </a>
@@ -685,7 +722,7 @@
           </tr>
 
           <tr class="pub">
-            <td width="100%" valign="middle">
+            <td width="100%" valign="middle" data-thumb="images/3d_topo_2019.jpg">
               <a href="https://bibliotekanauki.pl/articles/317913.pdf">
                 <span class="papertitle">Use of Unmanned Aerial Vehicles for 3D topographic Mapping and Monitoring the Air Quality of Open-pit Mines</span>
               </a>
@@ -702,7 +739,7 @@
           </tr>
 
           <tr class="pub">
-            <td width="100%" valign="middle">
+            <td width="100%" valign="middle" data-thumb="images/smog_2019.jpg">
               <a href="https://www.academia.edu/download/97971763/194.pdf">
                 <span class="papertitle">Assessment of Smog Pattern and its Effects on Visibility in Lahore Using Remote Sensing and GIS</span>
               </a>
@@ -719,7 +756,7 @@
           </tr>
 
           <tr class="pub">
-            <td width="100%" valign="middle">
+            <td width="100%" valign="middle" data-thumb="images/obser_line_2018.jpg">
               <a href="https://www.academia.edu/download/59495125/2018_-_Designing_observation_lines_a_case_study_of_the_G9_seam_in_the_Mong_Duong_colliery20190603-62941-1h3aa1t.pdf">
                 <span class="papertitle">Designing Observation Lines: A Case Study of the G9 Seam in the Mong Duong Colliery</span>
               </a>
@@ -736,7 +773,7 @@
           </tr>
 
           <tr class="pub">
-            <td width="100%" valign="middle">
+            <td width="100%" valign="middle" data-thumb="images/lahore_green_mit_2018.jpg">
               <a href="https://www.researchgate.net/publication/332030683_Lahore_is_losing_its_green_cover_-_fast">
                 <span class="papertitle">Lahore is Losing its Green Cover — Fast</span>
               </a>
@@ -753,7 +790,7 @@
           </tr>
           
           <tr class="pub">
-            <td width="100%" valign="middle">
+            <td width="100%" valign="middle" data-thumb="images/BHUs_vietnam_2017.jpg">
               <a href="https://www.researchgate.net/publication/320372181_Exploring_Existing_Spatial_Patterns_of_Diarrhea_and_Proposing_New_Health_Unit_Using_GIS_in_District_Vehari_Punjab_Pakistan">
                 <span class="papertitle">Exploring Existing Spatial Patterns of Diarrhea and Proposing New Health Unit Using GIS in District Vehari, Punjab Pakistan</span>
               </a>
@@ -767,7 +804,7 @@
           </tr>
 
           <tr class="pub">
-            <td width="100%" valign="middle">
+            <td width="100%" valign="middle" data-thumb="images/agc_anp_2017.jpg">
               <a href="https://www.researchgate.net/publication/316512317_Above_Ground_Carbon_Quantification_in_a_Moist_Temperate_Himalayan_Forest">
                 <span class="papertitle">Above Ground Carbon Quantification in a Moist Temperate Himalayan Forest</span>
               </a>
@@ -783,7 +820,7 @@
           </tr>
 
           <tr class="pub">
-            <td width="100%" valign="middle">
+            <td width="100%" valign="middle" data-thumb="images/water_leak_2017.jpg">
               <a href="https://www.researchgate.net/publication/316512133_A_GIS_Based_Water_Loss_Assessment_and_Real_Time_Leakage_Detection_in_Water_Supply_Pipelines_of_Faisalabad_City">
                 <span class="papertitle">A GIS Based Water Loss Assessment and Real Time Leakage Detection in Water Supply Pipelines of Faisalabad City</span>
               </a>
@@ -799,7 +836,7 @@
           </tr>
           
           <tr class="pub">
-            <td width="100%" valign="middle">
+            <td width="100%" valign="middle" data-thumb="images/landfill_2016.jpg">
               <a href="https://www.academia.edu/download/89149777/d8074714a24496e8bab7cbb6e3c13859c5d1.pdf">
                 <span class="papertitle">Landfill Sites Identification using GIS and Multi-Criteria Method: A Case Study of Intermediate City of Punjab, Pakistan</span>
               </a>
@@ -816,7 +853,7 @@
           </tr>
           
           <tr class="pub">
-            <td width="100%" valign="middle">
+            <td width="100%" valign="middle" data-thumb="images/pu_service_area_2015.jpg">
               <a href="https://nja.pastic.gov.pk/PJS/index.php/PJS/article/view/894">
                 <span class="papertitle">Assessment of Transit Stops Service Area using Geographical Information System – A Case Study of Punjab University Transportation</span>
               </a>
@@ -833,7 +870,7 @@
           </tr>
 
           <tr class="pub">
-            <td width="100%" valign="middle">
+            <td width="100%" valign="middle" data-thumb="images/ICASE_2013.jpg">
               <a href="https://www.proceedings.com/content/021/021840webtoc.pdf">
                 <span class="papertitle">Assessment of Transit Stop Service Area using GIS: A Case Study of Punjab University Transportation</span>
               </a>
@@ -847,7 +884,7 @@
           </tr>
 
           <tr class="pub">
-            <td width="100%" valign="middle">
+            <td width="100%" valign="middle" data-thumb="images/ICASE_2013.jpg">
               <a href="https://www.proceedings.com/content/021/021840webtoc.pdf">
                 <span class="papertitle">Multi-Criteria based Landfill Sites Identification by using GIS: A Case Study of Sahiwal Tehsil, Pakistan</span>
               </a>
@@ -861,7 +898,7 @@
           </tr>
 
           <tr class="pub">
-            <td width="100%" valign="middle">
+            <td width="100%" valign="middle" data-thumb="images/morph_2013.jpg">
               <a href="https://www.researchgate.net/publication/259874832_Morphometric_Relation_to_the_Geological_Structures_of_Haro_River_Drainage_Basin_Northern_Pakistan">
                 <span class="papertitle">Morphometric Relation to the Geological Structures of Haro River Drainage Basin, Northern Pakistan</span>
               </a>
@@ -876,7 +913,7 @@
           </tr>
 
           <tr class="pub">
-            <td width="100%" valign="middle">
+            <td width="100%" valign="middle" data-thumb="images/shk_parks_2013.jpg">
               <a href="https://nja.pastic.gov.pk/PJS/index.php/PJS/article/view/477/477">
                 <span class="papertitle">Assessment of Neighborhood Parks using GIS Techniques in Sheikhupura City</span>
               </a>
@@ -894,7 +931,7 @@
           
 
           <tr class="pub">
-            <td width="100%" valign="middle">
+            <td width="100%" valign="middle" data-thumb="images/pmc_peshawar_2012.jpg">
               <a href="https://umr.prime.edu.pk/docs/05th_UMR/5th%20UMR%20%20Abstract%20Book%202012.pdf">
                 <span class="papertitle">Analyzing health facility localities in relation with population distribution using GIS techniques for Lahore city</span>
               </a>
@@ -929,6 +966,28 @@
     </table>
 
     <script>
+      (function () {
+        const fallback = 'images/paper-thumb.jpg'; // add a default image here (optional)
+        document.querySelectorAll('#pub-list tr.pub > td').forEach(td => {
+          if (td.querySelector('img.thumb')) return; // idempotent
+          const src = td.dataset.thumb || fallback;
+          const alt = td.dataset.alt || 'Publication thumbnail';
+          const img = document.createElement('img');
+          img.className = 'thumb';
+          img.loading = 'lazy';
+          img.decoding = 'async';
+          img.alt = alt;
+          img.src = src;
+    
+          const details = document.createElement('div');
+          while (td.firstChild) details.appendChild(td.firstChild); // move your current content
+          td.appendChild(img);
+          td.appendChild(details);
+        });
+      })();
+    </script>
+
+    <script>
       const pubsPerPage = 10;
       const pubs = document.querySelectorAll(".pub");
       const totalPages = Math.ceil(pubs.length / pubsPerPage);
@@ -953,5 +1012,24 @@
       showPage(1);
     </script>
 
+    <!-- 🔍 Lightbox overlay for thumbnails -->
+    <script>
+    document.addEventListener('click', e => {
+      const img = e.target.closest('img.thumb');
+      if (!img) return;  // ignore clicks elsewhere
+    
+      const src = img.src;
+      const overlay = document.createElement('div');
+      overlay.className = 'lightbox';
+      overlay.innerHTML = `<img src="${src}" alt="Full image">`;
+    
+      // remove overlay when clicked
+      overlay.addEventListener('click', () => overlay.remove());
+    
+      document.body.appendChild(overlay);
+    });
+    </script>
+
+    
   </body>
 </html>
