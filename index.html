@@ -171,6 +171,7 @@
             <button data-target="tab-pubs" class="active">Publications</button>
             <button data-target="tab-conf">Conferences</button>
             <button data-target="tab-talks">Talks</button>
+            <button data-target="tab-tworkshops">Training Workshops</button>
           </div>
           
           <!-- ===== TAB: Publications ===== -->
@@ -984,7 +985,6 @@
             </td>
           </tr>
 
-                
               </tbody>
             </table>
           
@@ -1023,6 +1023,23 @@
             </table>
           
             <div class="pagination" data-for="talks-list"></div>
+          </section>
+
+          <!-- ===== TAB: Training Workshops ===== -->
+          <section id="tab-talks" class="tab-tworkshops">
+            <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+              <tbody>
+                <tr><td style="padding:20px;width:100%;vertical-align:middle"><h2>Talks</h2></td></tr>
+              </tbody>
+            </table>
+          
+            <table style="width:98%;border:10px;border-spacing:10px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+              <tbody id="talks-list">
+                <!-- Put your talks here (same <tr class="pub"> structure) -->
+              </tbody>
+            </table>
+          
+            <div class="pagination" data-for="tworkshops-list"></div>
           </section>
           
           <!-- ========= Thumbnails (works for all lists) ========= -->
@@ -1066,7 +1083,7 @@
             if (location.hash && document.querySelector(location.hash)) activate(location.hash.substring(1));
           
             // --- Pagination helper reusable across lists ---
-            const perPage = { 'pub-list': 10, 'conf-list': 10, 'talks-list': 10 };
+            const perPage = { 'pub-list': 10, 'conf-list': 10, 'talks-list': 10, 'tworkshops-list': 10 };
           
             function showPage(listId, page){
               const list = document.getElementById(listId);
