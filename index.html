@@ -1334,68 +1334,112 @@
           <!-- ========= Tabs + per-tab pagination ========= -->
           <script>
           (function tabsAndPagination(){
-            // --- Tabs ---
+            // ---- Tabs ----
             const tabButtons = document.querySelectorAll('#tabs button');
             const panels = document.querySelectorAll('.tab-panel');
           
-            function activate(id){
-              panels.forEach(p => p.classList.toggle('active', p.id === id));
-              tabButtons.forEach(b => b.classList.toggle('active', b.dataset.target === id));
-              location.hash = id; // deep-link
-              const listId = document.querySelector(`#${id} .pagination`)?.dataset.for;
-              if (listId) showPage(listId, 1);
-            }
-            tabButtons.forEach(btn => btn.addEventListener('click', () => activate(btn.dataset.target)));
-            if (location.hash && document.querySelector(location.hash)) activate(location.hash.substring(1));
+            const perPage = {
+              'pub-list': 10,
+              'conf-list': 6,
+              'talks-list': 4,
+              'tworkshops-list': 4
+            };
           
-            // --- Pagination helper reusable across lists ---
-            const perPage = { 'pub-list': 10, 'conf-list': 10, 'talks-list': 10, 'tworkshops-list': 10 };
+            // helper: show/hide by class (works reliably for table rows + cards)
+            function setVisible(el, yes){
+              if (!el) return;
+              el.classList.toggle('is-hidden', !yes);
+            }
+          
+            // inject minimal CSS for hiding rows safely
+            const style = document.createElement('style');
+            style.textContent = `
+              .is-hidden{ display:none !important; }
+              .pagination { text-align:center; margin:14px 0; }
+              .pagination button{
+                background:none; border:none; color:blue; text-decoration:underline; cursor:pointer;
+                font-size:14px; margin:0 5px;
+              }
+              .pagination button.active{ color:red; text-decoration:none; font-weight:bold; }
+            `;
+            document.head.appendChild(style);
           
             function showPage(listId, page){
               const list = document.getElementById(listId);
               if (!list) return;
-              const items = [...list.querySelectorAll('.pub')];
-            
-              // If empty, clear pagination and bail.
+          
+              const items = Array.from(list.querySelectorAll('tr.pub'));
               const pagEl = document.querySelector(`.pagination[data-for="${listId}"]`);
-              if (items.length === 0) {
-                if (pagEl) pagEl.innerHTML = '';
+              if (!pagEl) return;
+          
+              if (items.length === 0){
+                pagEl.innerHTML = '';
                 return;
               }
-            
+          
               const pageSize = perPage[listId] || 10;
-              const totalPages = Math.ceil(items.length / pageSize);
-              items.forEach((tr, i) => {
-                tr.style.display = (i >= (page-1)*pageSize && i < page*pageSize) ? 'table-row' : 'none';
-              });
-            
-              if (!pagEl) return;
+              const totalPages = Math.max(1, Math.ceil(items.length / pageSize));
+              const safePage = Math.min(Math.max(page, 1), totalPages);
+          
+              const start = (safePage - 1) * pageSize;
+              const end = start + pageSize;
+          
+              items.forEach((tr, i) => setVisible(tr, i >= start && i < end));
+          
+              // build pagination
               pagEl.innerHTML = '';
-              for (let i = 1; i <= totalPages; i++) {
+          
+              // prev
+              const prev = document.createElement('button');
+              prev.textContent = 'Prev';
+              prev.disabled = safePage === 1;
+              prev.style.opacity = prev.disabled ? '0.5' : '1';
+              prev.style.textDecoration = prev.disabled ? 'none' : 'underline';
+              prev.addEventListener('click', () => showPage(listId, safePage - 1));
+              pagEl.appendChild(prev);
+          
+              // page numbers
+              for (let i = 1; i <= totalPages; i++){
                 const b = document.createElement('button');
                 b.textContent = i;
-                if (i === page) b.classList.add('active');
+                if (i === safePage) b.classList.add('active');
                 b.addEventListener('click', () => showPage(listId, i));
                 pagEl.appendChild(b);
               }
+          
+              // next
+              const next = document.createElement('button');
+              next.textContent = 'Next';
+              next.disabled = safePage === totalPages;
+              next.style.opacity = next.disabled ? '0.5' : '1';
+              next.style.textDecoration = next.disabled ? 'none' : 'underline';
+              next.addEventListener('click', () => showPage(listId, safePage + 1));
+              pagEl.appendChild(next);
             }
           
-            // initialize all paginations
-            document.querySelectorAll('.pagination').forEach(p => showPage(p.dataset.for, 1));
+            function paginateActivePanel(panelId){
+              const pag = document.querySelector(`#${panelId} .pagination`);
+              const listId = pag ? pag.dataset.for : null;
+              if (listId) showPage(listId, 1);
+            }
+          
+            function activate(id){
+              panels.forEach(p => p.classList.toggle('active', p.id === id));
+              tabButtons.forEach(b => b.classList.toggle('active', b.dataset.target === id));
+              location.hash = id;
+              paginateActivePanel(id);
+            }
+          
+            tabButtons.forEach(btn => btn.addEventListener('click', () => activate(btn.dataset.target)));
+          
+            // initial tab from hash
+            const initial = (location.hash && document.querySelector(location.hash))
+              ? location.hash.substring(1)
+              : 'tab-pubs';
+            activate(initial);
+          
           })();
           </script>
-          
-          <!-- 🔍 Lightbox (works for all tabs) -->
-          <script>
-          document.addEventListener('click', e => {
-            const img = e.target.closest('img.thumb');
-            if (!img) return;
-            const overlay = document.createElement('div');
-            overlay.className = 'lightbox';
-            overlay.innerHTML = `<img src="${img.src}" alt="Full image">`;
-            overlay.addEventListener('click', () => overlay.remove());
-            document.body.appendChild(overlay);
-          });
-          </script>   
+
   </body>
 </html>
