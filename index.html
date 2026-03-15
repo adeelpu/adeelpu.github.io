@@ -1365,13 +1365,11 @@
               'tworkshops-list': 5
             };
           
-            // helper: show/hide by class (works reliably for table rows + cards)
             function setVisible(el, yes){
               if (!el) return;
               el.classList.toggle('is-hidden', !yes);
             }
           
-            // inject minimal CSS for hiding rows safely
             const style = document.createElement('style');
             style.textContent = `
               .is-hidden{ display:none !important; }
@@ -1406,10 +1404,8 @@
           
               items.forEach((tr, i) => setVisible(tr, i >= start && i < end));
           
-              // build pagination
               pagEl.innerHTML = '';
           
-              // prev
               const prev = document.createElement('button');
               prev.textContent = 'Prev';
               prev.disabled = safePage === 1;
@@ -1418,7 +1414,6 @@
               prev.addEventListener('click', () => showPage(listId, safePage - 1));
               pagEl.appendChild(prev);
           
-              // page numbers
               for (let i = 1; i <= totalPages; i++){
                 const b = document.createElement('button');
                 b.textContent = i;
@@ -1427,7 +1422,6 @@
                 pagEl.appendChild(b);
               }
           
-              // next
               const next = document.createElement('button');
               next.textContent = 'Next';
               next.disabled = safePage === totalPages;
@@ -1443,21 +1437,26 @@
               if (listId) showPage(listId, 1);
             }
           
-            function activate(id){
+            function activate(id, updateHash = true){
               panels.forEach(p => p.classList.toggle('active', p.id === id));
               tabButtons.forEach(b => b.classList.toggle('active', b.dataset.target === id));
-              location.hash = id;
+          
+              if (updateHash) {
+                history.replaceState(null, '', `#${id}`);
+              }
+          
               paginateActivePanel(id);
             }
           
-            tabButtons.forEach(btn => btn.addEventListener('click', () => activate(btn.dataset.target)));
+            tabButtons.forEach(btn =>
+              btn.addEventListener('click', () => activate(btn.dataset.target, true))
+            );
           
-            // initial tab from hash
             const initial = (location.hash && document.querySelector(location.hash))
               ? location.hash.substring(1)
               : 'tab-pubs';
-            activate(initial);
           
+            activate(initial, !!location.hash);
           })();
           </script>
 
