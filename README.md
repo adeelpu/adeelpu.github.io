@@ -4,7 +4,7 @@ This is the source code for my personal academic website, showcasing my research
 
 ## About
 
-I am an **Assistant Professor** at the [Institute of Geography]([https://www.pu.edu.pk/](https://pu.edu.pk/home/department/90083/)), University of the Punjab, Lahore, Pakistan, and Lab Director of **GeoScape Analytics Lab (GSAL)** — a research-led startup lab specializing in remote sensing, GIS, GeoAI, and spatial data science.
+I am an **Assistant Professor** at the [Institute of Geography](https://pu.edu.pk/home/department/90083/), University of the Punjab, Lahore, Pakistan, and Lab Director of **GeoScape Analytics Lab (GSAL)** — a research-led startup lab specializing in remote sensing, GIS, GeoAI, and spatial data science.
 
 ### Research Interests
 - Remote Sensing and GIS applications
