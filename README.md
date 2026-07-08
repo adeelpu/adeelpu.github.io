@@ -18,7 +18,7 @@ I am an **Assistant Professor** at the [Institute of Geography](https://pu.edu.p
 Feel free to clone this code for your own personal academic website. 
 
 **Original Source Attribution:**
-- This website design is modified from [Subash Khanal's academic website](https://github.com/subashkhanal/subashkhanal.github.io)
+- This website design is modified from [Subash Khanal's academic website](https://subash-khanal.github.io/)
 - Which was originally based on [John Barron's website](https://github.com/jonbarron/jonbarron_website)
 
 ## License
