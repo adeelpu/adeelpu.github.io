@@ -168,15 +168,16 @@
 
           <!-- ===== TABS BAR ===== -->
           <style>
-            .tabs {display:flex; flex-wrap:wrap; gap:10px; border-bottom:1px solid #e5e7eb; margin:0 20px 10px}
+            .tabs {display:flex; flex-wrap:nowrap; overflow-x:auto; white-space:nowrap; gap:4px; border-bottom:1px solid #e5e7eb; margin:0 20px 10px}
             .tabs button {
               background: none;
               border: none;
               cursor: pointer;
               border-radius: 8px 8px 0 0;
-              padding: 6px 12px;
+              padding: 6px 10px;
+              flex: 0 0 auto;
               font-family: inherit;    /* same font as h2 */
-              font-size: 1.5em;        /* matches typical h2 size */
+              font-size: 1.45em;       /* sized so all five tabs fit on one row */
               font-weight: bold;       /* matches h2 weight */
               color: #222;             /* dark text like h2 */
               transition: background 0.2s ease, color 0.2s ease;
@@ -1247,22 +1248,6 @@
               <br>
               <a href="https://practice.users.earthengine.app/view/cedrusdeodarakp">Open App</a>
               <p>Current and future habitat suitability of <i>Cedrus deodara</i> under climate scenarios.</p>
-              </div>
-            </td>
-          </tr>
-          <tr><td style="padding:0"><h3>Model Code (co-authored)</h3></td></tr>
-          <tr class="pub">
-            <td width="100%" valign="middle">
-              <img class="thumb" loading="lazy" src="images/Range_2025.jpg" alt="Code for our GeoAI models">
-              <div>
-              <a href="https://github.com/mvrl"><span class="papertitle">Code for our GeoAI models</span></a>
-              <br>
-              Multimodal Vision Research Laboratory, Washington University in St. Louis
-              <br>
-              <em>GitHub</em>
-              <br>
-              <a href="https://github.com/mvrl/sat2sound">Sat2Sound</a> / <a href="https://github.com/mvrl/RANGE">RANGE</a> / <a href="https://github.com/mvrl/TaxaBind">TaxaBind</a> / <a href="https://github.com/mvrl/PSM">PSM</a> / <a href="https://github.com/mvrl/Sat2Cap">Sat2Cap</a> / <a href="https://github.com/fieldsoftheworld/ftw-baselines/tree/main">FTW Baselines</a>
-              <p>Open-source implementations of the multimodal GeoAI models from my postdoctoral work.</p>
               </div>
             </td>
           </tr>
