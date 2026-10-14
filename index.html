@@ -62,7 +62,7 @@
       }
 
       /* ----- Invited Talks card ----- */
-      #talks-list .pub td{
+      #talks-list .pub td, #activities-list .pub td{
         display:block;               /* one-column card */
         padding:0;                   /* remove table padding */
       }
@@ -168,7 +168,7 @@
 
           <!-- ===== TABS BAR ===== -->
           <style>
-            .tabs {display:flex; flex-wrap:nowrap; overflow-x:auto; white-space:nowrap; gap:4px; border-bottom:1px solid #e5e7eb; margin:0 20px 10px}
+            .tabs {display:flex; flex-wrap:nowrap; overflow-x:auto; white-space:nowrap; gap:4px; scroll-behavior:smooth; scrollbar-width:none; border-bottom:1px solid #e5e7eb; margin:0 20px 10px}
             .tabs button {
               background: none;
               border: none;
@@ -194,6 +194,16 @@
               background: #f9fafb;
             }
             .tabs button.active{ background:#f3f4f6; }
+            .tabs::-webkit-scrollbar{ display:none; }
+            .tabs-wrap{ position:relative; margin:0 20px 10px; width:0; min-width:calc(100% - 40px); } /* width:0 stops the tab row from stretching the page table */
+            .tabs-wrap .tabs{ margin:0; }
+            .tabs-arrow{
+              position:absolute; top:0; bottom:1px; width:34px; border:none; cursor:pointer;
+              font-size:1.8em; font-weight:bold; color:#222; display:none; z-index:2;
+            }
+            .tabs-arrow-right{ right:0; background:linear-gradient(to right, rgba(255,255,255,0), #fff 45%); text-align:right; }
+            .tabs-arrow-left{ left:0; background:linear-gradient(to left, rgba(255,255,255,0), #fff 45%); text-align:left; }
+            .tabs-arrow.show{ display:block; }
             .tab-panel{ display:none; }
             .tab-panel.active{ display:block; }
           
@@ -205,12 +215,17 @@
             .pagination button.active{ color:red; text-decoration:none; font-weight:bold; }
           </style>
           
+          <div class="tabs-wrap">
           <div class="tabs" id="tabs">
             <button data-target="tab-pubs" class="active">Publications</button>
             <button data-target="tab-data">Datasets</button>
             <button data-target="tab-conf">Conferences</button>
             <button data-target="tab-talks">Invited Talks</button>
             <button data-target="tab-tworkshops">Training Workshops</button>
+            <button data-target="tab-activities">Activities</button>
+          </div>
+          <button class="tabs-arrow tabs-arrow-left" type="button" aria-label="Show previous tabs">&lsaquo;</button>
+          <button class="tabs-arrow tabs-arrow-right" type="button" aria-label="Show more tabs">&rsaquo;</button>
           </div>
           
           <!-- ===== TAB: Publications ===== -->
@@ -1527,6 +1542,21 @@
                     </article>
                   </td>
                 </tr>
+
+                <tr class="pub">
+                  <td>
+                    <article class="talk-card">
+                      <div class="talk-body">
+                        <div class="talk-title">Seminar on &ldquo;Geospatial Industry Future and Remote Sensing&rdquo;</div>
+                        <p class="talk-meta"><strong>Nov 2018</strong> — Forman Christian College (A Chartered University), Lahore, Pakistan</p>
+                        <p class="talk-links">
+                          <a href="https://adealgis.wixsite.com/adeel-ahmad-geog/recent-updates" target="_blank" rel="noopener">Post</a>
+                        </p>
+                      </div>
+                      <img src="images/IT_FCCU_Seminar_2018.jpg" alt="Adeel Ahmad presenting at a seminar at FCCU, 2018">
+                    </article>
+                  </td>
+                </tr>
               </tbody>
             </table>
           
@@ -1620,6 +1650,173 @@
             <div class="pagination" data-for="tworkshops-list"></div>
           </section>
           
+
+          <!-- ===== TAB: Activities ===== -->
+          <section id="tab-activities" class="tab-panel">
+            <table style="width:98%;border:0;border-spacing:10px;border-collapse:separate;margin:0 auto;">
+              <tbody id="activities-list">
+                <tr class="pub">
+                  <td>
+                    <article class="talk-card">
+                      <div class="talk-body">
+                        <div class="talk-title">Demographic Field Survey with Final-Year Geography Students</div>
+                        <p class="talk-meta"><strong>Apr 18–23, 2019</strong> — Villages around Islamabad, Pakistan · Field Supervisor</p>
+                        <p class="talk-links">
+                          <a href="https://adealgis.wixsite.com/adeel-ahmad-geog/recent-updates" target="_blank" rel="noopener">Post</a>
+                        </p>
+                      </div>
+                      <img src="images/Act_Field_Survey_Islamabad_2019.jpg" alt="Geography students on a demographic field survey near Islamabad, 2019">
+                    </article>
+                  </td>
+                </tr>
+
+                <tr class="pub">
+                  <td>
+                    <article class="talk-card">
+                      <div class="talk-body">
+                        <div class="talk-title">Gala dé Carte: Celebrating GIS Day 2017</div>
+                        <p class="talk-meta"><strong>Nov 22, 2017</strong> — Forman Christian College (A Chartered University), Lahore, Pakistan · Organizer</p>
+                        <p class="talk-links">
+                          <a href="https://adealgis.wixsite.com/adeel-ahmad-geog/recent-updates" target="_blank" rel="noopener">Post</a>
+                        </p>
+                      </div>
+                      <img src="images/Act_Gala_de_Carte_GIS_Day_2017.jpg" alt="Gala de Carte GIS Day 2017 poster">
+                    </article>
+                  </td>
+                </tr>
+
+                <tr class="pub">
+                  <td>
+                    <article class="talk-card">
+                      <div class="talk-body">
+                        <div class="talk-title">Geo Awareness Week: FCCU Mapathon&rsquo;17</div>
+                        <p class="talk-meta"><strong>Nov 16, 2017</strong> — Forman Christian College (A Chartered University), Lahore, Pakistan · Advisor, Dean Geographical Society</p>
+                        <p class="talk-links">
+                          <a href="https://adealgis.wixsite.com/adeel-ahmad-geog/recent-updates" target="_blank" rel="noopener">Post</a>
+                        </p>
+                      </div>
+                      <img src="images/Act_FCCU_Mapathon_2017.jpg" alt="FCCU Mapathon 2017 participants">
+                    </article>
+                  </td>
+                </tr>
+
+                <tr class="pub">
+                  <td>
+                    <article class="talk-card">
+                      <div class="talk-body">
+                        <div class="talk-title">Talk on the Geopolitical Importance of CPEC</div>
+                        <p class="talk-meta"><strong>Oct 23, 2017</strong> — Forman Christian College (A Chartered University), Lahore, Pakistan · Advisor, Dean Geographical Society</p>
+                        <p class="talk-links">
+                          <a href="https://adealgis.wixsite.com/adeel-ahmad-geog/recent-updates" target="_blank" rel="noopener">Post</a>
+                        </p>
+                      </div>
+                      <img src="images/Act_CPEC_Talk_2017.jpg" alt="Students and faculty at the CPEC talk, FCCU 2017">
+                    </article>
+                  </td>
+                </tr>
+
+                <tr class="pub">
+                  <td>
+                    <article class="talk-card">
+                      <div class="talk-body">
+                        <div class="talk-title">Route Map for a Record-Attempt Cycling Journey around Pakistan</div>
+                        <p class="talk-meta"><strong>2017</strong> — Pakistan · Cartographer</p>
+                        <p class="talk-links">
+                          <a href="https://adealgis.wixsite.com/adeel-ahmad-geog/recent-updates" target="_blank" rel="noopener">Post</a>
+                        </p>
+                      </div>
+                      <img src="images/Act_Cyclist_Route_Map_2017.jpg" alt="Route map of a cycling journey around Pakistan">
+                    </article>
+                  </td>
+                </tr>
+
+                <tr class="pub">
+                  <td>
+                    <article class="talk-card">
+                      <div class="talk-body">
+                        <div class="talk-title">Seminar on Remote Sensing of Land</div>
+                        <p class="talk-meta"><strong>May 11, 2017</strong> — Forman Christian College (A Chartered University), Lahore, Pakistan · Advisor, Dean Geographical Society</p>
+                        <p class="talk-links">
+                          <a href="https://adealgis.wixsite.com/adeel-ahmad-geog/recent-updates" target="_blank" rel="noopener">Post</a>
+                        </p>
+                      </div>
+                      <img src="images/Act_RS_of_Land_Seminar_2017.jpg" alt="Remote Sensing of Land seminar at FCCU, 2017">
+                    </article>
+                  </td>
+                </tr>
+
+                <tr class="pub">
+                  <td>
+                    <article class="talk-card">
+                      <div class="talk-body">
+                        <div class="talk-title">Technology fusing Nature (TechNat&rsquo;17)</div>
+                        <p class="talk-meta"><strong>Apr 20, 2017</strong> — Forman Christian College (A Chartered University), Lahore, Pakistan · Advisor, Dean Geographical Society</p>
+                        <p class="talk-links">
+                          <a href="https://adealgis.wixsite.com/adeel-ahmad-geog/recent-updates" target="_blank" rel="noopener">Post</a>
+                        </p>
+                      </div>
+                      <img src="images/Act_TechNat_2017.jpg" alt="TechNat 2017 team at FCCU">
+                    </article>
+                  </td>
+                </tr>
+
+                <tr class="pub">
+                  <td>
+                    <article class="talk-card">
+                      <div class="talk-body">
+                        <div class="talk-title">Study Trip to the Olive Garden (Kalar Kahar) and Katas Raj Temples</div>
+                        <p class="talk-meta"><strong>Apr 01, 2017</strong> — Chakwal District, Pakistan · Field Supervisor</p>
+                        <p class="talk-links">
+                          <a href="https://adealgis.wixsite.com/adeel-ahmad-geog/recent-updates" target="_blank" rel="noopener">Post</a>
+                        </p>
+                      </div>
+                      <img src="images/Act_Study_Trip_Kalar_Kahar_2017.jpg" alt="Geography students on a study trip, 2017">
+                    </article>
+                  </td>
+                </tr>
+
+                <tr class="pub">
+                  <td>
+                    <article class="talk-card">
+                      <div class="talk-body">
+                        <div class="talk-title">Lecture on Digital Mapping by a JICA Mapping Expert</div>
+                        <p class="talk-meta"><strong>Mar 10, 2017</strong> — Forman Christian College (A Chartered University), Lahore, Pakistan</p>
+                        <p class="talk-links">
+                          <a href="https://adealgis.wixsite.com/adeel-ahmad-geog/recent-updates" target="_blank" rel="noopener">Post</a>
+                        </p>
+                      </div>
+                      <img src="images/Act_JICA_Digital_Mapping_2017.jpg" alt="Students at the JICA digital mapping lecture, FCCU 2017">
+                    </article>
+                  </td>
+                </tr>
+
+              </tbody>
+            </table>
+
+            <div class="pagination" data-for="activities-list"></div>
+          </section>
+
+          <!-- ========= Tab bar scroll arrows ========= -->
+          <script>
+          (function tabArrows(){
+            const bar = document.getElementById('tabs');
+            const left = document.querySelector('.tabs-arrow-left');
+            const right = document.querySelector('.tabs-arrow-right');
+            function update(){
+              const max = bar.scrollWidth - bar.clientWidth;
+              left.classList.toggle('show', bar.scrollLeft > 2);
+              right.classList.toggle('show', bar.scrollLeft < max - 2);
+            }
+            right.addEventListener('click', () => bar.scrollBy({left: 220}));
+            left.addEventListener('click', () => bar.scrollBy({left: -220}));
+            bar.addEventListener('scroll', update);
+            window.addEventListener('resize', update);
+            document.querySelectorAll('#tabs button').forEach(b => b.addEventListener('click', () => b.scrollIntoView({inline:'nearest', block:'nearest'})));
+            if (document.fonts) document.fonts.ready.then(update);
+            update();
+          })();
+          </script>
+
           <!-- ========= Thumbnails (works for all lists) ========= -->
           <script>
           (function initThumbs(){
@@ -1654,7 +1851,8 @@
               'pub-list': 10,
               'conf-list': 5,
               'talks-list': 5,
-              'tworkshops-list': 5
+              'tworkshops-list': 5,
+              'activities-list': 5
             };
           
             function setVisible(el, yes){
