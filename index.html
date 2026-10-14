@@ -28,6 +28,10 @@
         @media (max-width:700px){
           #pub-list .pub td{ grid-template-columns:90px 1fr; }
         }
+        #data-list .pub td{ display:grid; grid-template-columns:200px 1fr; gap:12px; align-items:start; }
+        #data-list .pub td .thumb{ width:100%; aspect-ratio:4/3; object-fit:cover; border-radius:8px; border:1px solid #e5e7eb; }
+        #data-list h3{ margin:18px 0 4px; }
+        @media (max-width:700px){ #data-list .pub td{ grid-template-columns:90px 1fr; } }
 
         .tab-panel .pagination { text-align:center; margin:14px 0; }
         .tab-panel .pagination button{
@@ -127,7 +131,7 @@
                 </p>
                 
                 <p>
-                I am currently working as an <strong><a href="https://pu.edu.pk/faculty/detail/adeel-ahmad1">Assistant Professor</a></strong> at the <a href="https://pu.edu.pk/home/department/90083/Institute-of-Geography">Institute of Geography</a>, <a href="https://pu.edu.pk/">University of the Punjab, Lahore</a>.  
+                I am currently working as an <strong><a href="https://pu.edu.pk/faculty/detail/adeel-ahmad1">Assistant Professor</a></strong> at the <a href="https://pu.edu.pk/home/department/90083/Institute-of-Geography">Institute of Geography</a>, <a href="https://pu.edu.pk/">University of the Punjab, Lahore</a>, where I founded and lead the <a href="https://geoscapeanalyticslab.github.io/">GeoScape Analytics Lab (GSAL)</a>, a research group working on remote sensing, GIS and GeoAI for open, public-good geospatial science in Pakistan.  
                 </p>
                 <p>
                 Previously, I worked as a <a href="https://taylorgeospatial.org/">Taylor Geospatial Institute (TGI)</a> Postdoctoral Fellow in Computer Science at <a href="https://wustl.edu/">Washington University in St. Louis</a>, where I was part of the <a href="https://mvrl.cse.wustl.edu/">Multimodal Vision Research Laboratory</a> led by <a href="https://engineering.wustl.edu/faculty/Nathan-Jacobs.html">Dr. Nathan Jacobs</a>.  
@@ -164,7 +168,7 @@
 
           <!-- ===== TABS BAR ===== -->
           <style>
-            .tabs {display:flex; gap:10px; border-bottom:1px solid #e5e7eb; margin:0 20px 10px}
+            .tabs {display:flex; flex-wrap:wrap; gap:10px; border-bottom:1px solid #e5e7eb; margin:0 20px 10px}
             .tabs button {
               background: none;
               border: none;
@@ -202,6 +206,7 @@
           
           <div class="tabs" id="tabs">
             <button data-target="tab-pubs" class="active">Publications</button>
+            <button data-target="tab-data">Datasets</button>
             <button data-target="tab-conf">Conferences</button>
             <button data-target="tab-talks">Invited Talks</button>
             <button data-target="tab-tworkshops">Training Workshops</button>
@@ -243,7 +248,7 @@
               <br>
               <em>International Journal of Applied Earth Observation and Geoinformation</em>, 2025
               <br>
-              <a href="data/TBA.bib">Bibtex</a> /
+              <a href="data/canopy_height_2025.bib">Bibtex</a> /
               <a href="https://www.linkedin.com/posts/adeel-ahmad-gis_remotesensing-geoai-deeplearning-activity-7414714250708799488-AZWl?utm_source=share&utm_medium=member_desktop&rcm=ACoAAAb98j8Bj3VL7OBOVrxJu-7S3vev3kITknI">LinkedIn</a> /
               <a href="https://ee-adeelgeog.projects.earthengine.app/view/which-map-2020">GEE App</a> /
               <a href="https://doi.org/10.5281/zenodo.18056032">Access Data via Zenodo</a> /
@@ -268,7 +273,7 @@
               <a href="https://www.linkedin.com/posts/adeel-ahmad-gis_glad-to-share-that-my-phd-students-sadaf-activity-7402660586914058240-dFbP?utm_source=share&utm_medium=member_desktop&rcm=ACoAAAb98j8Bj3VL7OBOVrxJu-7S3vev3kITknI">LinkedIn</a> /
               <a href="https://practice.users.earthengine.app/view/cedrusdeodarakp">GEE App</a>
               <p></p>
-              <p>We predict current and future habitats of <i>Cedrus deodara</i>i using MaxEnt, showing precipitation-driven suitability and significant future habitat contraction under climate change.</p>
+              <p>We predict current and future habitats of <i>Cedrus deodara</i> using MaxEnt, showing precipitation-driven suitability and significant future habitat contraction under climate change.</p>
             </td>
           </tr>
 
@@ -347,7 +352,7 @@
           
           <tr class="pub">
             <td width="100%" valign="middle" data-thumb="images/Taxabind_2025.jpg">
-              <a href="https://arxiv.org/pdf/2408.07050">
+              <a href="https://arxiv.org/abs/2411.00683">
                 <span class="papertitle">TaxaBind: A Unified Embedding Space for Ecological Applications</span>
               </a>
               <br>
@@ -358,7 +363,6 @@
               <a href="https://arxiv.org/abs/2411.00683">Arxiv</a> /
               <a href="data/taxa2025.bib">Bibtex</a> /
               <a href="https://github.com/mvrl/TaxaBind">Code</a> /
-              <a href="https://subash-khanal.github.io/PSM/index.html">Project Page</a> /
               <a href="https://lnkd.in/p/gVpdgCNZ">LinkedIn</a>
               <p></p>
               <p>TaxaBind is a suite of multimodal models useful for downstream ecological tasks covering six modalities: ground-level image, geographic location, satellite image, text, audio, and environmental features.</p>
@@ -589,7 +593,7 @@
           <tr class="pub">
             <td width="100%" valign="middle" data-thumb="images/index_based_2022.jpg">
               <a href="https://ges.rgo.ru/jour/article/view/2739">
-                <span class="papertitle">Index-Based Spatiotemporal Assesment of Water Quality in Tarbela Reservoir, Pakistan (1990− 2020)</span>
+                <span class="papertitle">Index-Based Spatiotemporal Assessment of Water Quality in Tarbela Reservoir, Pakistan (1990− 2020)</span>
               </a>
               <br>
               Nausheen Mazhar, Kanwal Javid, Muhammad Ameer Nawaz Akram, Amna Afzal, Kiran Hamayon and <strong>Adeel Ahmad</strong>
@@ -625,7 +629,7 @@
                 <span class="papertitle">GIS-based Landslide Susceptibility Mapping using Analytical Hierarchy Process: A Case Study of Astore Region, Pakistan</span>
               </a>
               <br>
-              Nouman Afzal, <strong>Adeel Ahmad</strong>, Safdar Ali Shirazi, Isma Younes and Li Thi Thu Ha
+              Nouman Afzal, <strong>Adeel Ahmad</strong>, Safdar Ali Shirazi, Isma Younes and Le Thi Thu Ha
               <br>
               <em>EQA - International Journal of Environmental Quality</em>, 2022
               <br>
@@ -650,7 +654,7 @@
               <a href="data/crime_mapping_2022.bib">Bibtex</a>
                             
               <p></p>
-              <p>We performed landslide susceptibility analysis in Astore, Pakistan using GIS, remote sensing, and AHP, identifying five risk zones with slope, lithology, and land cover as key triggering factors.</p>
+              <p>We mapped police-station-level crime data (murder, rape, kidnapping, vehicle theft and dacoity) for District Kasur in 2021 using GIS interpolation, producing crime type, rate and density maps to show how geospatial tools can support policing and law enforcement.</p>
             </td>
           </tr>
 
@@ -664,7 +668,7 @@
               <br>
               <em>Stochastic Environmental Research and Risk Assessment</em>, 2022
               <br>
-              <a href="data/crime_mapping_2022.bib">Bibtex</a> /
+              <a href="data/streamflow_2022.bib">Bibtex</a> /
               <a href="https://www.linkedin.com/posts/naveed-ahmed-1b2434228_changes-in-monthly-streamflow-in-the-hindukushkarakoramhimalaya-activity-7165521087043133440-bqc2?utm_source=share&utm_medium=member_desktop&rcm=ACoAAAb98j8Bj3VL7OBOVrxJu-7S3vev3kITknI">LinkedIn</a>
                             
               <p></p>
@@ -715,7 +719,7 @@
               <br>
               Hammad Gilani, <strong>Adeel Ahmad</strong>, Isma Younes and Sawaid Abbas
               <br>
-              <em>Land Degradation & Development</em>, 2021
+              <em>Land Degradation & Development</em>, 2022
               <br>
               <a href="data/soil_ero_2021.bib">Bibtex</a> /
               <a href="https://lnkd.in/p/gDsYhyTP">LinkedIn</a> /
@@ -954,6 +958,22 @@
           </tr>
 
           <tr class="pub">
+            <td width="100%" valign="middle" data-thumb="images/mphil_book_2017.jpg">
+              <a href="https://www.eurolivro.pt/livro/isbn/6202340614.html">
+                <span class="papertitle">Estimating Forest Tree Carbon using Remote Sensing Data and Techniques</span>
+              </a>
+              <br>
+              <strong>Adeel Ahmad</strong>
+              <br>
+              <em>M.Phil. thesis, published as a monograph by Noor Publishing</em>, 2017 (ISBN 978-620-2-34061-8)
+              <br>
+              <a href="data/mphil_book_2017.bib">Bibtex</a>
+              <p></p>
+              <p>My M.Phil. research (University of the Punjab, 2011–2013), quantifying aboveground tree carbon stock in the moist temperate Himalayan forest of Pakistan by combining field inventory with satellite remote sensing and GIS.</p>
+            </td>
+          </tr>
+
+          <tr class="pub">
             <td width="100%" valign="middle" data-thumb="images/agc_anp_2017.jpg">
               <a href="https://www.researchgate.net/publication/316512317_Above_Ground_Carbon_Quantification_in_a_Moist_Temperate_Himalayan_Forest">
                 <span class="papertitle">Above Ground Carbon Quantification in a Moist Temperate Himalayan Forest</span>
@@ -1091,7 +1111,7 @@
               <em>5th National Undergraduate Medical Research Fair</em>, 2012
               <br>
               <p></p>
-              <p>We conducted drainage morphometry analysis of the Haro River basin using DEM and ArcGIS, identifying dendritic to semi-dendritic patterns and elongated basin shape with low flood potential.</p>
+              <p>We mapped health facilities in Lahore against population distribution using GIS to assess how well the location of health services matches where people live.</p>
             </td>
           </tr>
 
@@ -1101,6 +1121,155 @@
             <div class="pagination" data-for="pub-list"></div>
           </section>
           
+
+          <!-- ===== TAB: Datasets, Software & Apps ===== -->
+          <section id="tab-data" class="tab-panel">
+            <table style="width:98%;border:10px;border-spacing:10px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+              <tbody id="data-list">
+          <tr><td style="padding:20px 0 0;width:100%;vertical-align:middle"><h2 style="margin:0">Datasets, Software and Apps</h2></td></tr>
+          <tr><td style="padding:0"><h3>Datasets</h3></td></tr>
+          <tr class="pub">
+            <td width="100%" valign="middle">
+              <img class="thumb" loading="lazy" src="images/canopy_height_2025.jpg" alt="WHiCH (Western Himalaya Canopy Height) Map 2020, Pakistan">
+              <div>
+              <a href="https://doi.org/10.5281/zenodo.18056032"><span class="papertitle">WHiCH (Western Himalaya Canopy Height) Map 2020, Pakistan</span></a>
+              <br>
+              <strong>Adeel Ahmad</strong>, Srikumar Sastry, Aayush Dhakal, Subash Khanal, Alex Levering, Hammad Gilani and Nathan Jacobs
+              <br>
+              <em>Zenodo, 2025 · DOI: 10.5281/zenodo.18056032</em>
+              <br>
+              <a href="https://doi.org/10.5281/zenodo.18056032">Zenodo</a> / <a href="https://gee-community-catalog.org/projects/which/">Awesome GEE Community Catalog</a> / <a href="https://ee-adeelgeog.projects.earthengine.app/view/which-map-2020">GEE App</a> / <a href="data/whichmap_2025.bib">Bibtex</a> / <a href="https://doi.org/10.1016/j.jag.2025.105030">Paper</a>
+              <p>10 m canopy height map of Pakistan&rsquo;s western Himalayas for 2020, produced by fusing GEDI LiDAR with Sentinel-2 imagery in a deep learning model.</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="pub">
+            <td width="100%" valign="middle">
+              <img class="thumb" loading="lazy" src="images/soil_erosion_2021.jpg" alt="National-Scale Soil Erosion Dataset of Pakistan (2005 and 2015) at 1 km Spatial Resolution">
+              <div>
+              <a href="https://doi.org/10.5281/zenodo.10694225"><span class="papertitle">National-Scale Soil Erosion Dataset of Pakistan (2005 and 2015) at 1 km Spatial Resolution</span></a>
+              <br>
+              Hammad Gilani, <strong>Adeel Ahmad</strong>, Isma Younes and Sawaid Abbas
+              <br>
+              <em>Zenodo, 2024 · DOI: 10.5281/zenodo.10694225</em>
+              <br>
+              <a href="https://doi.org/10.5281/zenodo.10694225">Zenodo</a> / <a href="https://gee-community-catalog.org/projects/pk_nssed/">Awesome GEE Community Catalog</a> / <a href="https://ee-adeelgeog.projects.earthengine.app/view/pakistan-soil-erosion-2005-2015">GEE App</a> / <a href="data/soil_erosion_dataset_2024.bib">Bibtex</a> / <a href="https://doi.org/10.1002/ldr.4138">Paper</a>
+              <p>RUSLE-based annual soil loss maps for all of Pakistan for 2005 and 2015, released with our Land Degradation &amp; Development study.</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="pub">
+            <td width="100%" valign="middle">
+              <img class="thumb" loading="lazy" src="images/FTW_2025.jpg" alt="Fields of The World (FTW): Global Agricultural Field Boundary Benchmark">
+              <div>
+              <a href="https://fieldsofthe.world/"><span class="papertitle">Fields of The World (FTW): Global Agricultural Field Boundary Benchmark</span></a>
+              <br>
+              Hannah Kerner, Snehal Chaudhari, Aninda Ghosh, Caleb Robinson, <strong>Adeel Ahmad</strong>, Eddie Choi, Nathan Jacobs, Chris Holmes, Matthias Mohr, Rahul Dodhia, Juan M Lavista Ferres and Jennifer Marcus
+              <br>
+              <em>Benchmark dataset, 2025 (AAAI-25)</em>
+              <br>
+              <a href="https://fieldsofthe.world/">Project Page</a> / <a href="https://github.com/fieldsoftheworld/ftw-baselines/tree/main">Code &amp; Data</a> / <a href="https://ojs.aaai.org/index.php/AAAI/article/view/35034">Paper</a>
+              <p>Over 1.6 million labelled field parcels across 24 countries on four continents for training and testing field boundary segmentation models.</p>
+              </div>
+            </td>
+          </tr>
+          <tr><td style="padding:0"><h3>Software and Platforms (GeoScape Analytics Lab)</h3></td></tr>
+          <tr class="pub">
+            <td width="100%" valign="middle">
+              <img class="thumb" loading="lazy" src="images/grips_2026.jpg" alt="GRIPS: Geospatial Research Index of Pakistan Studies">
+              <div>
+              <a href="https://grips-gsal.netlify.app/"><span class="papertitle">GRIPS: Geospatial Research Index of Pakistan Studies</span></a>
+              <br>
+              GeoScape Analytics Lab (GSAL); project directed by <strong>Adeel Ahmad</strong>
+              <br>
+              <em>Software, v1.0.0, 2026 · DOI: 10.5281/zenodo.22807356 · MIT License</em>
+              <br>
+              <a href="https://grips-gsal.netlify.app/">Launch</a> / <a href="https://doi.org/10.5281/zenodo.22807356">Zenodo</a> / <a href="https://github.com/geoscapeanalyticslab/GRIPS">GitHub</a> / <a href="data/grips_2026.bib">Bibtex</a>
+              <p>A free literature-discovery tool that searches GIS, remote sensing, Earth and environmental science papers, filtered to Pakistan-focused research by default.</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="pub">
+            <td width="100%" valign="middle">
+              <img class="thumb" loading="lazy" src="images/geodrop_2026.jpg" alt="GeoDROP: Geospatial Datasets Repository of Pakistan">
+              <div>
+              <a href="https://geoscapeanalyticslab.github.io/GeoDROP/"><span class="papertitle">GeoDROP: Geospatial Datasets Repository of Pakistan</span></a>
+              <br>
+              GeoScape Analytics Lab (GSAL); project led by <strong>Adeel Ahmad</strong>
+              <br>
+              <em>Open data platform, 2026</em>
+              <br>
+              <a href="https://geoscapeanalyticslab.github.io/GeoDROP/">Launch</a> / <a href="https://github.com/geoscapeanalyticslab/GeoDROP">GitHub</a>
+              <p>A curated index of freely accessible, peer-reviewed geospatial datasets covering Pakistan.</p>
+              </div>
+            </td>
+          </tr>
+          <tr><td style="padding:0"><h3>Google Earth Engine Apps</h3></td></tr>
+          <tr class="pub">
+            <td width="100%" valign="middle">
+              <img class="thumb" loading="lazy" src="images/canopy_height_2025.jpg" alt="WHiCH Map 2020 Viewer">
+              <div>
+              <a href="https://ee-adeelgeog.projects.earthengine.app/view/which-map-2020"><span class="papertitle">WHiCH Map 2020 Viewer</span></a>
+              <br>
+              <strong>Adeel Ahmad</strong>
+              <br>
+              <em>Google Earth Engine App</em>
+              <br>
+              <a href="https://ee-adeelgeog.projects.earthengine.app/view/which-map-2020">Open App</a>
+              <p>Interactive viewer for the Western Himalaya canopy height map.</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="pub">
+            <td width="100%" valign="middle">
+              <img class="thumb" loading="lazy" src="images/soil_erosion_2021.jpg" alt="Pakistan Soil Erosion 2005&ndash;2015">
+              <div>
+              <a href="https://ee-adeelgeog.projects.earthengine.app/view/pakistan-soil-erosion-2005-2015"><span class="papertitle">Pakistan Soil Erosion 2005&ndash;2015</span></a>
+              <br>
+              <strong>Adeel Ahmad</strong>
+              <br>
+              <em>Google Earth Engine App</em>
+              <br>
+              <a href="https://ee-adeelgeog.projects.earthengine.app/view/pakistan-soil-erosion-2005-2015">Open App</a>
+              <p>Explore national soil erosion estimates and their change between 2005 and 2015.</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="pub">
+            <td width="100%" valign="middle">
+              <img class="thumb" loading="lazy" src="data/sdm_ajk_2025.jpg" alt="<i>Cedrus deodara</i> Habitat under Climate Change, Khyber Pakhtunkhwa">
+              <div>
+              <a href="https://practice.users.earthengine.app/view/cedrusdeodarakp"><span class="papertitle"><i>Cedrus deodara</i> Habitat under Climate Change, Khyber Pakhtunkhwa</span></a>
+              <br>
+              Sadaf Safdar and <strong>Adeel Ahmad</strong>
+              <br>
+              <em>Google Earth Engine App</em>
+              <br>
+              <a href="https://practice.users.earthengine.app/view/cedrusdeodarakp">Open App</a>
+              <p>Current and future habitat suitability of <i>Cedrus deodara</i> under climate scenarios.</p>
+              </div>
+            </td>
+          </tr>
+          <tr><td style="padding:0"><h3>Model Code (co-authored)</h3></td></tr>
+          <tr class="pub">
+            <td width="100%" valign="middle">
+              <img class="thumb" loading="lazy" src="images/Range_2025.jpg" alt="Code for our GeoAI models">
+              <div>
+              <a href="https://github.com/mvrl"><span class="papertitle">Code for our GeoAI models</span></a>
+              <br>
+              Multimodal Vision Research Laboratory, Washington University in St. Louis
+              <br>
+              <em>GitHub</em>
+              <br>
+              <a href="https://github.com/mvrl/sat2sound">Sat2Sound</a> / <a href="https://github.com/mvrl/RANGE">RANGE</a> / <a href="https://github.com/mvrl/TaxaBind">TaxaBind</a> / <a href="https://github.com/mvrl/PSM">PSM</a> / <a href="https://github.com/mvrl/Sat2Cap">Sat2Cap</a> / <a href="https://github.com/fieldsoftheworld/ftw-baselines/tree/main">FTW Baselines</a>
+              <p>Open-source implementations of the multimodal GeoAI models from my postdoctoral work.</p>
+              </div>
+            </td>
+          </tr>
+              </tbody>
+            </table>
+          </section>
+
               <!-- ===== TAB: Conferences ===== -->
           <section id="tab-conf" class="tab-panel">
           

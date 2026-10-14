@@ -13,16 +13,16 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: Your awesome title
-email: your-email@example.com
+title: Adeel Ahmad, Ph.D.
+email: adeel.geog@pu.edu.pk
 description: >- # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
+  Academic website of Dr. Adeel Ahmad, Assistant Professor at the Institute of
+  Geography, University of the Punjab, and founding director of the GeoScape
+  Analytics Lab (GSAL): remote sensing, GIS and GeoAI research.
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://subash-khanal.github.io" # the base hostname & protocol for your site, e.g. http://example.com
-twitter_username: Subash
-github_username:  Subash33
+url: "https://adeelpu.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+twitter_username: adeal_gis
+github_username:  adeelpu
 
 # Build settings
 markdown: kramdown
