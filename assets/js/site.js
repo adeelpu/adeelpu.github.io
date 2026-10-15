@@ -52,6 +52,8 @@
     });
     groups.forEach(function (g) {
       g.hidden = !g.querySelector('[data-type]:not([hidden])');
+      var jump = document.querySelector('.year-jump a[href="#' + g.id + '"]');
+      if (jump) jump.hidden = g.hidden;
     });
     if (count) count.textContent = 'Showing ' + shown + ' of ' + items.length + ' ' + noun;
     if (empty) empty.hidden = shown !== 0;
