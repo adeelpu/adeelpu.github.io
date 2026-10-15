@@ -76,6 +76,10 @@ The filter counts in the chips are typed in by hand, so update the number on **A
 
 **Update the CV:** upload the new PDF to `data/` and change the CV links (search for `Dr_Adeel_Ahmad_PU_CV` in all five pages).
 
+## Visitor statistics
+
+Every page loads Google Analytics 4 (Measurement ID `G-4G2H4VRN44`) from the top of its `<head>`. When you add a new page, copy that `<!-- Google tag (gtag.js) -->` block into it. Reports are at [analytics.google.com](https://analytics.google.com/).
+
 ## Local preview
 
 Open `index.html` directly in a browser, or serve the folder:
