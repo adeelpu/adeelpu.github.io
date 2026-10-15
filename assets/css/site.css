@@ -153,9 +153,11 @@ main{display:block}
 /* ---------- Publication list ---------- */
 .year-group{padding-top:28px}
 .year-title{margin:0 0 4px;font-family:var(--serif);font-size:28px;font-weight:500;color:var(--ink)}
-.entry{display:grid;grid-template-columns:200px 1fr;gap:24px;padding:22px 0;border-top:1px solid var(--line)}
+.entry{display:grid;grid-template-columns:320px 1fr;gap:28px;align-items:start;padding:26px 0;border-top:1px solid var(--line)}
 .entry:first-of-type{border-top:0}
-.entry .thumb{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:8px;border:1px solid var(--line);background:var(--paper-2)}
+.entry .thumb-link{display:block;line-height:0}
+.entry .thumb{display:block;width:100%;aspect-ratio:4/3;object-fit:contain;padding:6px;border-radius:8px;border:1px solid var(--line);background:#fff;image-rendering:auto;transition:box-shadow .2s ease}
+.entry .thumb-link:hover .thumb{box-shadow:0 4px 18px rgba(0,0,0,.12)}
 .entry .type{display:inline-block;font-size:11.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;border-radius:4px;padding:2px 8px;margin-bottom:6px}
 .type-journal{color:#1f4e79;background:#e8f0f8}
 .type-conference{color:#8a4a12;background:#fbefe2}
@@ -216,6 +218,7 @@ main{display:block}
 
 /* ---------- Responsive ---------- */
 @media (max-width:900px){
+  .entry{grid-template-columns:240px 1fr;gap:22px}
   .hero h1{font-size:42px}
   .page-hero h1{font-size:36px}
   .portrait{width:170px;height:170px}
@@ -237,7 +240,8 @@ main{display:block}
   .affil ul{padding:14px 18px;justify-content:flex-start}
   .section{padding-top:56px}
   .h2{font-size:28px}
-  .entry{grid-template-columns:96px 1fr;gap:14px}
+  .entry{grid-template-columns:1fr;gap:14px}
+  .entry .thumb{aspect-ratio:auto;max-height:260px}
   .entry .title{font-size:17px}
   .timeline li{grid-template-columns:1fr;gap:2px}
   .events{grid-template-columns:1fr}
