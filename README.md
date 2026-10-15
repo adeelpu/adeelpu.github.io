@@ -22,13 +22,15 @@ My research combines satellite Earth observation and Geospatial AI (GeoAI) to mo
 
 ## What's on the site
 
-| Section | Contents |
+| Page | Contents |
 |---|---|
-| **Publications** | Journal articles, conference papers, book chapters and popular-science articles, each with links, BibTeX and a short summary |
-| **Datasets** | Published datasets (Zenodo DOIs), GSAL software and platforms, Google Earth Engine apps, and code for co-authored GeoAI models |
-| **Conferences** | Conferences attended and presented at |
-| **Invited Talks** | Invited lectures and keynotes |
-| **Training Workshops** | Training programs I have led or delivered |
+| **Home** (`index.html`) | Profile, about and research summary, latest news, research areas, selected publications, GSAL tools, talks overview |
+| **Publications** (`publications.html`) | Every journal article, conference paper, book chapter, abstract, preprint, thesis and popular article, grouped by year, with type filters and search |
+| **Data & Tools** (`data.html`) | Published datasets (Zenodo DOIs), GSAL software and platforms, and Google Earth Engine apps |
+| **Talks & Events** (`talks.html`) | Invited talks, conferences, training workshops and activities, with photos and links |
+| **News** (`news.html`) | A filterable timeline of everything above, newest first |
+
+Old links such as `adeelpu.github.io/#tab-pubs` or `#tab-conf` still work: they forward to the matching new page.
 
 ### Selected open outputs
 
@@ -43,25 +45,36 @@ My research combines satellite Earth observation and Geospatial AI (GeoAI) to mo
 
 ```
 .
-├── index.html        # The whole site: profile, research summary and all tabs
-├── stylesheet.css    # Fonts and base styles
-├── data/             # BibTeX files (*.bib) and CV PDFs linked from the site
-├── images/           # Profile photo, publication thumbnails, event photos
-└── _config.yml       # GitHub Pages settings
+├── index.html          # Home page
+├── publications.html   # Full publication list
+├── data.html           # Datasets, software and Earth Engine apps
+├── talks.html          # Invited talks, conferences, training workshops, activities
+├── news.html           # News timeline
+├── assets/css/site.css # All styles (colours, fonts, layout)
+├── assets/js/site.js   # Mobile menu, publication/news filters and search, old-link forwarding
+├── data/               # BibTeX files (*.bib) and CV PDFs linked from the site
+├── images/             # Profile photo, thumbnails, event photos, header background
+├── index_old.html      # Earlier version of the site (kept for reference; uses stylesheet.css)
+└── _config.yml         # GitHub Pages settings
 ```
 
 ## Updating the site
 
-**Add a publication:** copy an existing `<tr class="pub">` block inside `<tbody id="pub-list">` in `index.html`, keep the list newest-first, and:
-1. put a thumbnail (4:3, about 800×600 px) in `images/` and set it in `data-thumb`;
-2. add a BibTeX file to `data/` and link it from the **Bibtex** button;
-3. write a one- or two-sentence summary starting with "We …".
+All pages are plain HTML; no build step is needed. Keep every list newest-first.
 
-**Add a dataset, app or software release:** copy a `<tr class="pub">` block inside `<tbody id="data-list">` and place it under the matching heading.
+**Add a publication** (`publications.html`): copy an existing `<article class="entry">` block into the right year section and update
+1. `id` (a short unique slug) and `data-type` (`journal`, `conference`, `chapter`, `abstract`, `preprint`, `thesis` or `article`), plus the matching label in `<span class="type type-…">`;
+2. the thumbnail (4:3, about 800×600 px) in `images/`;
+3. title link, authors (wrap your name in `<strong>`), venue line, links (BibTeX files go in `data/`) and a one- or two-sentence summary starting with "We …".
+The filter counts in the chips are typed in by hand, so update the number on **All** and on the publication type.
 
-**Update the CV:** upload the new PDF to `data/` and change the **CV** link near the top of `index.html`.
+**Add a talk, conference, workshop or activity** (`talks.html`): copy an `<article class="event">` block into the right section, set a unique `id`, the date, title, place and links, and put the photo in `images/`. Update the count on the chip at the top of the page.
 
-Publication lists are paginated automatically (10 per page); no build step is needed.
+**Add a news item** (`news.html`): copy an `<li data-type="…">` line into the right year. `data-type` is one of `publications`, `data`, `invited-talks`, `conferences`, `training-workshops` or `activities`, and the link should point at the item's `id` on its page (for example `talks.html#…`). The five newest items are also listed by hand in the News box on `index.html`.
+
+**Add a dataset, app or software release** (`data.html`): copy an `<article class="entry">` block into the Datasets, Software and Platforms, or Google Earth Engine Apps section.
+
+**Update the CV:** upload the new PDF to `data/` and change the CV links (search for `Dr_Adeel_Ahmad_PU_CV` in all five pages).
 
 ## Local preview
 
@@ -74,7 +87,7 @@ python3 -m http.server 8000
 
 ## Credits
 
-The design is adapted from [Subash Khanal's website](https://subash-khanal.github.io/), which is based on [Jon Barron's website template](https://github.com/jonbarron/jonbarron_website).
+The current design is custom. Earlier versions were adapted from [Subash Khanal's website](https://subash-khanal.github.io/), which is based on [Jon Barron's website template](https://github.com/jonbarron/jonbarron_website). Fonts: Source Serif 4, Public Sans and IBM Plex Mono (Google Fonts).
 
 ## License
 
