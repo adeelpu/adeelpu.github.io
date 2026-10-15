@@ -91,7 +91,7 @@ python3 -m http.server 8000
 
 ## Credits
 
-The current design is custom. Earlier versions were adapted from [Subash Khanal's website](https://subash-khanal.github.io/), which is based on [Jon Barron's website template](https://github.com/jonbarron/jonbarron_website). Fonts: Source Serif 4, Public Sans and IBM Plex Mono (Google Fonts).
+The current design is custom. Earlier versions were adapted from [Subash Khanal's website](https://subash-khanal.github.io/), which is based on [Jon Barron's website template](https://github.com/jonbarron/jonbarron_website). Fonts: Source Serif 4, Public Sans and IBM Plex Mono (Google Fonts). Icons: [Tabler Icons](https://tabler.io/icons) (MIT License), embedded in each page as an inline SVG sprite; to add a link with an icon, copy an existing `<a class="ico" ...>` and, if needed, its `<symbol>` from the sprite at the top of the page.
 
 ## License
 

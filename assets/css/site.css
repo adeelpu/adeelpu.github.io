@@ -254,3 +254,18 @@ main{display:block}
   .hero,.site-header,.subnav,.toolbar,.site-footer,.band{background:none !important;color:#000}
   .menu-btn,.toolbar{display:none}
 }
+
+/* ---------- Icon links (link rows and profile links) ---------- */
+.i{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.links{align-items:center}
+.entry .links,.card .links,.event .links{gap:8px}
+.ico{position:relative;display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border:1px solid var(--line);border-radius:8px;color:var(--ink-2);background:#fff;transition:color .15s ease,border-color .15s ease,background .15s ease}
+.ico:hover{color:var(--link);border-color:#d9b675;background:#fdf8ee;text-decoration:none}
+.ico[data-tip]:hover::after,.ico[data-tip]:focus-visible::after{content:attr(data-tip);position:absolute;bottom:calc(100% + 8px);left:50%;transform:translateX(-50%);white-space:nowrap;background:var(--ink);color:#fff;font-size:12.5px;font-weight:600;line-height:1.2;padding:6px 9px;border-radius:6px;pointer-events:none;z-index:10}
+.ico[data-tip]:hover::before,.ico[data-tip]:focus-visible::before{content:"";position:absolute;bottom:calc(100% + 3px);left:50%;transform:translateX(-50%);border:5px solid transparent;border-top-color:var(--ink);border-bottom:0;pointer-events:none;z-index:10}
+.profile-links{gap:10px}
+.ico-lg{width:42px;height:42px;border-color:rgba(255,255,255,.28);background:rgba(255,255,255,.04);color:#e8e5dc}
+.ico-lg .i{width:21px;height:21px}
+.ico-lg:hover{color:#13201b;background:var(--accent);border-color:var(--accent)}
+.ico-lg[data-tip]:hover::after,.ico-lg[data-tip]:focus-visible::after{background:#fff;color:var(--ink)}
+.ico-lg[data-tip]:hover::before,.ico-lg[data-tip]:focus-visible::before{border-top-color:#fff}
